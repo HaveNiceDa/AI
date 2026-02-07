@@ -11,8 +11,10 @@ const model = new ChatAlibabaTongyi({
 
 // 调用invoke向模型提问
 async function run() {
-  const res = await model.invoke("你是谁呀能做什么？");
-  console.log(res);
+  const res = await model.stream("你是谁呀能做什么？");
+  for await (const chunk of res) {
+    console.log(chunk.content, "");
+  }
 }
 
 run();
