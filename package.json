@@ -1,7 +1,16 @@
 {
 	"type": "module",
 	"scripts": {
-		"test10": "tsx test10.ts"
+		"dev": "tsx",
+		"build": "tsc",
+		"test": "tsx test.ts",
+		"test10": "tsx test10.ts",
+		"textsplitter": "tsx textsplitter.ts",
+		"chain": "tsx chain.ts",
+		"embedding": "tsx embedding.ts",
+		"csvloader": "tsx csvloader.ts",
+		"pdf": "tsx pdf-example.ts",
+		"pdf-lib": "tsx pdf-lib-example.ts"
 	},
 	"dependencies": {
 		"@langchain/anthropic": "^1.3.13",
@@ -9,16 +18,22 @@
 		"@langchain/core": "^1.1.18",
 		"@langchain/ollama": "^1.2.2",
 		"@langchain/openai": "^1.2.4",
+		"@langchain/textsplitters": "^1.0.1",
 		"chromadb": "^3.2.2",
 		"d3-dsv": "^2.0.0",
 		"dashscope": "^1.0.1",
 		"dotenv": "^17.2.3",
 		"jq": "^1.7.2",
 		"langchain": "^1.2.16",
+		"pdf-lib": "^1.17.1",
+		"pdf-parse": "^2.4.5",
+		"pdfjs-dist": "^5.4.624",
 		"zod": "^4.3.6"
 	},
 	"devDependencies": {
 		"@types/node": "^25.2.1",
-		"tsx": "^4.21.0"
+		"@types/pdf-parse": "^1.1.5",
+		"tsx": "^4.21.0",
+		"typescript": "^5.7.3"
 	}
 }

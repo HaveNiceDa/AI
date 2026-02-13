@@ -1,9 +1,4 @@
 import { ChatAlibabaTongyi } from "@langchain/community/chat_models/alibaba_tongyi";
-import {
-  HumanMessage,
-  AIMessage,
-  SystemMessage,
-} from "@langchain/core/messages";
 import dotenv from "dotenv";
 
 dotenv.config();
