@@ -1,0 +1,92 @@
+[
+  {
+    "lc": 1,
+    "type": "constructor",
+    "id": [
+      "langchain_core",
+      "messages",
+      "HumanMessage"
+    ],
+    "kwargs": {
+      "content": "你好，我是小明",
+      "additional_kwargs": {},
+      "response_metadata": {}
+    }
+  },
+  {
+    "lc": 1,
+    "type": "constructor",
+    "id": [
+      "langchain_core",
+      "messages",
+      "AIMessage"
+    ],
+    "kwargs": {
+      "content": "你好小明，很高兴认识你！",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "additional_kwargs": {},
+      "response_metadata": {}
+    }
+  },
+  {
+    "lc": 1,
+    "type": "constructor",
+    "id": [
+      "langchain_core",
+      "messages",
+      "HumanMessage"
+    ],
+    "kwargs": {
+      "content": "我有2只猫",
+      "additional_kwargs": {},
+      "response_metadata": {}
+    }
+  },
+  {
+    "lc": 1,
+    "type": "constructor",
+    "id": [
+      "langchain_core",
+      "messages",
+      "AIMessage"
+    ],
+    "kwargs": {
+      "content": "好的，我知道你有2只猫",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "additional_kwargs": {},
+      "response_metadata": {}
+    }
+  },
+  {
+    "lc": 1,
+    "type": "constructor",
+    "id": [
+      "langchain_core",
+      "messages",
+      "HumanMessage"
+    ],
+    "kwargs": {
+      "content": "小刚有1只狗",
+      "additional_kwargs": {},
+      "response_metadata": {}
+    }
+  },
+  {
+    "lc": 1,
+    "type": "constructor",
+    "id": [
+      "langchain_core",
+      "messages",
+      "AIMessage"
+    ],
+    "kwargs": {
+      "content": "明白了，小刚有1只狗",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "additional_kwargs": {},
+      "response_metadata": {}
+    }
+  }
+]
