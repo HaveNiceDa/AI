@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能客服</title>
+    <link rel="stylesheet" href="qa.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>智能客服</h1>
+        </header>
+        
+        <div class="divider"></div>
+        
+        <div class="chat-container" id="chatContainer">
+            <div class="message assistant">
+                <div class="message-content">
+                    你好，有什么可以帮助你？
+                </div>
+            </div>
+        </div>
+        
+        <div class="input-section">
+            <div class="input-wrapper">
+                <input type="text" id="chatInput" placeholder="请输入您的问题..." autocomplete="off">
+                <button id="sendBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>AI思考中...</p>
+    </div>
+    
+    <script src="qa.js"></script>
+</body>
+</html>

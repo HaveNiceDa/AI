@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识库更新服务</title>
+    <link rel="stylesheet" href="upload.css">
+</head>
+<body>
+    <div class="container">
+        <h1>知识库更新服务</h1>
+        
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📁</div>
+                <p>拖拽文件到此处或点击上传</p>
+                <p class="upload-hint">仅支持 .txt 文件</p>
+                <input type="file" id="fileInput" accept=".txt" hidden>
+            </div>
+            
+            <div id="fileInfo" class="file-info hidden">
+                <div class="file-details">
+                    <span class="file-name" id="fileName"></span>
+                    <span class="file-meta" id="fileMeta"></span>
+                </div>
+                <button class="upload-btn" id="uploadBtn">上传到知识库</button>
+            </div>
+        </div>
+        
+        <div id="result" class="result hidden"></div>
+    </div>
+    
+    <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>载入知识库中...</p>
+    </div>
+    
+    <script src="upload.js"></script>
+</body>
+</html>

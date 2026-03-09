@@ -1,0 +1,8 @@
+node_modules/
+dist/
+chroma_db/
+chat_history/
+md5.text
+.env
+.DS_Store
+*.log
