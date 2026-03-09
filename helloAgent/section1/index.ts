@@ -25,12 +25,19 @@ const AGENT_SYSTEM_PROMPT = `
 1. get_weather(city: string): 获取指定城市的天气信息
 2. get_attraction(city: string, weather: string): 根据城市和天气推荐旅游景点
 
-请按照以下格式输出你的思考和行动:
+请严格按照以下格式输出你的思考和行动:
 Thought: 你的思考过程
-Action: 工具调用，格式为 工具名(参数名="参数值", ...)
+Action: 工具调用，必须使用正确的格式，例如: get_weather(city="北京") 或 get_attraction(city="北京", weather="晴天")
 
 当你获得足够的信息并准备提供最终答案时，请使用以下格式:
 Action: Finish[最终答案]
+
+重要要求:
+1. 必须在Action字段中包含完整的工具调用
+2. 工具调用必须包含所有必要的参数
+3. 参数值必须用双引号包围
+4. 不要在Action字段中添加任何额外的文字或注释
+5. 确保工具名和参数名完全正确
 `;
 
 // --- 2. 初始化 ---
@@ -53,7 +60,7 @@ async function runAgent() {
     const llmOutput = await llm.generate(fullPrompt, AGENT_SYSTEM_PROMPT);
     // 模型可能会输出多余的Thought-Action，需要截断
     const match = llmOutput.match(
-      /(Thought:.*?Action:.*?)(?=\n\s*(?:Thought:|Action:|Observation:)|)/s,
+      /(Thought:.*?Action:.*?)(?=\n\s*(?:Thought:|Action:|Observation:)|$)/s,
     );
     let processedOutput = llmOutput;
     if (match && match[1].trim() !== llmOutput.trim()) {
