@@ -11,7 +11,6 @@ interface WeatherData {
   current_condition: CurrentCondition[];
 }
 
-/** 查询真实天气工具 */
 export async function getWeather(city: string): Promise<string> {
   const url = `https://wttr.in/${city}?format=j1`;
 
@@ -22,8 +21,7 @@ export async function getWeather(city: string): Promise<string> {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const raw = await response.json();
-    const data: WeatherData = raw as WeatherData;
+    const data: WeatherData = await response.json();
 
     const currentCondition = data.current_condition[0];
     const weatherDesc = currentCondition.weatherDesc[0].value;

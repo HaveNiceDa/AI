@@ -8,11 +8,7 @@ interface TavilyResponse {
   results?: TavilyResult[];
 }
 
-/** 根据城市和天气状况，互联网上搜索合适的景点： */
-export async function getAttraction(
-  city: string,
-  weather: string,
-): Promise<string> {
+export async function getAttraction(city: string, weather: string): Promise<string> {
   const apiKey = process.env.TAVILY_API_KEY;
   if (!apiKey) {
     return "错误:未配置TAVILY_API_KEY环境变量。";
@@ -38,7 +34,7 @@ export async function getAttraction(
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const data: TavilyResponse = (await response.json()) as TavilyResponse;
+    const data: TavilyResponse = await response.json();
 
     if (data.answer) {
       return data.answer;

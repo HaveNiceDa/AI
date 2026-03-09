@@ -1,8 +1,14 @@
-import { OpenAICompatibleClient } from "./llm";
-import { availableTools } from "./tool";
+import dotenv from "dotenv";
+import { OpenAICompatibleClient } from "./llm.ts";
+import { availableTools } from "./available_tools.ts";
+
+// 加载环境变量
+dotenv.config({
+  path: "../../.env",
+});
 
 // --- 1. 配置LLM客户端 ---
-// 请根据您使用的服务，将这里替换成对应的凭证和地址
+// 从环境变量读取配置
 const API_KEY = process.env.OPENAI_API_KEY || "YOUR_API_KEY";
 const BASE_URL = process.env.OPENAI_BASE_URL || "YOUR_BASE_URL";
 const MODEL_ID = process.env.MODEL_NAME || "YOUR_MODEL_ID";

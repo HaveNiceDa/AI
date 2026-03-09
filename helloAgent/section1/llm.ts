@@ -47,7 +47,7 @@ export class OpenAICompatibleClient {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json() as ChatCompletionResponse;
+      const data: ChatCompletionResponse = await response.json();
       const answer = data.choices[0].message.content;
       console.log("大语言模型响应成功。");
       return answer;

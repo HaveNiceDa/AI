@@ -1,0 +1,12 @@
+{
+  "name": "hello-agent",
+  "version": "1.0.0",
+  "description": "A simple AI agent for weather and attraction recommendations",
+  "type": "module",
+  "scripts": {
+    "start": "node index.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
