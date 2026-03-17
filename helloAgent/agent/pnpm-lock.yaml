@@ -1,0 +1,40 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.6.1
+      openai:
+        specifier: ^6.31.0
+        version: 6.31.0
+
+packages:
+
+  dotenv@16.6.1:
+    resolution: {integrity: sha1-dz8OaVJ6gxXHKF1e5zxEWdIKgCA=, tarball: http://r.npm.sankuai.com/dotenv/download/dotenv-16.6.1.tgz}
+    engines: {node: '>=12'}
+
+  openai@6.31.0:
+    resolution: {integrity: sha1-u8FP4spx4c0PmBIWbIWlJA03u9Y=, tarball: http://r.npm.sankuai.com/openai/download/openai-6.31.0.tgz}
+    hasBin: true
+    peerDependencies:
+      ws: ^8.18.0
+      zod: ^3.25 || ^4.0
+    peerDependenciesMeta:
+      ws:
+        optional: true
+      zod:
+        optional: true
+
+snapshots:
+
+  dotenv@16.6.1: {}
+
+  openai@6.31.0: {}
