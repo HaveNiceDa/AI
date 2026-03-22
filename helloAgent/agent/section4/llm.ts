@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import OpenAI from 'openai';
+import * as fs from 'fs';
 
 // 加载 .env 文件中的环境变量
 import path from 'path';
@@ -7,8 +8,19 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const envFilePath = path.resolve(__dirname, '..', '.env');
-dotenv.config({ path: envFilePath });
+const envFilePath = path.resolve(__dirname, '..', '..', '..', '.env');
+
+console.log(`尝试加载环境变量文件: ${envFilePath}`);
+if (fs.existsSync(envFilePath)) {
+  console.log('文件存在，正在加载...');
+  dotenv.config({ path: envFilePath });
+  console.log('MODEL_NAME:', process.env.MODEL_NAME);
+  console.log('OPENAI_API_KEY:', process.env.OPENAI_API_KEY ? '已加载' : '未加载');
+  console.log('OPENAI_BASE_URL:', process.env.OPENAI_BASE_URL);
+} else {
+  console.log('文件不存在，使用默认环境变量...');
+  dotenv.config();
+}
 
 
 type Message = {
@@ -28,9 +40,9 @@ export class HelloAgentsLLM {
     /**
      * 初始化客户端。优先使用传入参数，如果未提供，则从环境变量加载。
      */
-    this.model = model || process.env.LLM_MODEL_ID as string;
-    const apiKeyValue = apiKey || process.env.LLM_API_KEY as string;
-    const baseUrlValue = baseUrl || process.env.LLM_BASE_URL as string;
+    this.model = model || process.env.MODEL_NAME as string;
+    const apiKeyValue = apiKey || process.env.OPENAI_API_KEY as string;
+    const baseUrlValue = baseUrl || process.env.OPENAI_BASE_URL as string;
     const timeoutValue = timeout || parseInt(process.env.LLM_TIMEOUT || '60');
     
     if (!this.model || !apiKeyValue || !baseUrlValue) {
