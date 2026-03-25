@@ -15,6 +15,14 @@ export * from "./agents/plan_solve_agent.js";
 export * from "./agents/reflection_agent.js";
 export * from "./agents/factory.js";
 
+// 导出工具模块
+export * from "./tools/base.js";
+export * from "./tools/registry.js";
+export * from "./tools/builtin/calculator.js";
+
+// 导出上下文模块
+export * from "./context/history.js";
+
 // 示例用法
 async function main() {
   try {

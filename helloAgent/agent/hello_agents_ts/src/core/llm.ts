@@ -76,4 +76,27 @@ export class HelloAgentsLLM {
     ];
     return this.invoke(messages);
   }
+
+  async *streamInvoke(messages: any[], temperature?: number, max_tokens?: number): AsyncGenerator<string> {
+    const params = {
+      model: this.model,
+      messages,
+      temperature: temperature || this.temperature,
+      max_tokens: max_tokens || this.max_tokens,
+      stream: true
+    };
+
+    try {
+      const stream = await this.client.chat.completions.create(params);
+      for await (const chunk of stream) {
+        const content = chunk.choices[0]?.delta?.content;
+        if (content) {
+          yield content;
+        }
+      }
+    } catch (error) {
+      console.error('LLM stream invoke error:', error);
+      throw error;
+    }
+  }
 }
